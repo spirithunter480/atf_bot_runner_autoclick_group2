@@ -86,7 +86,7 @@ def get_account_headers(acc):
 QUEUE_LOCK = asyncio.Lock()
 LAST_REQUEST_TIME = 0.0
 GLOBAL_PAUSE_UNTIL = 0.0
-TOTAL_COOLDOWN = 9.2
+TOTAL_COOLDOWN = 10.0
 
 async def wait_for_account_gap():
     global LAST_REQUEST_TIME, GLOBAL_PAUSE_UNTIL
@@ -201,7 +201,7 @@ async def boost_worker(acc):
                                 pass
                             print(f"[{acc_name}] Tap Triggered -> Boost Active")
                         elif b_resp.status == 429:
-                            pause_duration = 8.0
+                            pause_duration = 10.0
                             print(f"[{acc_name}] Rate limited (429)! Pausing for {pause_duration:.1f}s...")
                             await asyncio.sleep(pause_duration)
                             continue
