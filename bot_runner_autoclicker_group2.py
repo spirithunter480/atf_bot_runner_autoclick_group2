@@ -200,7 +200,7 @@ async def boost_worker(acc):
                                 pass
                             print(f"[{acc_name}] Tap Triggered -> Boost Active")
                         elif b_resp.status == 429:
-                            pause_duration = 4
+                            pause_duration = 2.5
                             print(f"[{acc_name}] Rate limited (429)! Pausing for {pause_duration:.1f}s...")
                             await asyncio.sleep(pause_duration)
                             continue
